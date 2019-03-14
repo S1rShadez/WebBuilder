@@ -48,7 +48,10 @@ public class CreateFile {
         try {
             path = new JFileChooser();
             path.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-            path.showSaveDialog(null);
+            int cancel = path.showSaveDialog(null);
+            if(cancel == JFileChooser.CANCEL_OPTION){
+                System.exit(69);
+            }
         } catch (HeadlessException e) {
             showMessageDialog(null, "Noe gikk galt ved valg av lagringssted");
         }
